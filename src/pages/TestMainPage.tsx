@@ -5,7 +5,6 @@ import { logout } from "wasp/client/auth";
 import { createTask, updateTask, deleteTasks, useQuery, getTasks } from "wasp/client/operations";
 
 // Stylesheets
-import "../styles/style.css"; // Main CSS file (Tailwind/Shadcn)
 import "../styles/Main.css"; // Stylesheet specific to this page
 
 // Static Assets

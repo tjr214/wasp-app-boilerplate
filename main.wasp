@@ -4,7 +4,7 @@ app MyWaspShadcdUIApp {
   },
   title: "My Wasp Shadcd/ui App Starter App",
 
-  head: [  // optional
+  head: [
     "<meta name=\"viewport\" content=\"minimum-scale=1, initial-scale=1, width=device-width\" />",
   ],
 
@@ -18,22 +18,17 @@ app MyWaspShadcdUIApp {
     methods: {
       usernameAndPassword: {}, // This is a very naive implementation, use 'email' in production instead
       //google: {}, // https://wasp-lang.dev/docs/integrations/google
-      //gitHub: {}, // https://wasp-lang.dev/docs/integrations/github
+      gitHub: {}, // https://wasp-lang.dev/docs/integrations/github
       //email: {} // https://wasp-lang.dev/docs/guides/email-auth
     },
     onAuthFailedRedirectTo: "/login",
+    onAuthSucceededRedirectTo: "/test_page"
   }
 }
 
 // ------------------------------------------------------------------------------------------------
 
 // ROUTES AND THEIR PAGES
-
-route RootRoute { path: "/", to: TestMainPage }
-page TestMainPage {
-  authRequired: true,
-  component: import { TestMainPage } from "@src/pages/TestMainPage"
-}
 
 route LoginRoute { path: "/login", to: LoginPage }
 page LoginPage {
@@ -43,6 +38,17 @@ page LoginPage {
 route SignupRoute { path: "/signup", to: SignupPage }
 page SignupPage {
   component: import { SignupPage } from "@src/auth/SignupPage"
+}
+
+route LandingPageRoute { path: "/", to: LandingPage }
+page LandingPage {
+  component: import { LandingPage } from "@src/pages/LandingPage"
+}
+
+route TestAppRoute { path: "/test_page", to: TestAppPage }
+page TestAppPage {
+  authRequired: true,
+  component: import { TestMainPage } from "@src/pages/TestMainPage"
 }
 
 // ------------------------------------------------------------------------------------------------
