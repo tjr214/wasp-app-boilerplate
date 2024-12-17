@@ -10,6 +10,7 @@
 6. [Operations](#operations)
 7. [Frontend Components](#frontend-components)
 8. [Common Patterns](#common-patterns)
+9. [Shadcn/UI Components](#shadcn-ui-components)
 
 ## Project Structure
 
@@ -313,5 +314,110 @@ action createComment {
 const { data: comments, isLoading } = useQuery(getComments, { postId });
 // Wasp automatically updates the UI when related entities change
 ```
+
+## Shadcn/UI Components
+
+Wasp integrates seamlessly with Shadcn/UI, a collection of beautifully designed, accessible React components. Here's how to use them:
+
+### Installing Components
+
+To add Shadcn/UI components to your project, use the following command pattern:
+
+```bash
+npx shadcn@latest add <component-name>
+```
+
+For example, to add a button component:
+
+```bash
+npx shadcn@latest add button
+```
+
+This will:
+
+1. Create the component in your `src/components/ui` directory
+2. Add necessary dependencies and utilities
+3. Set up the component with proper styling and accessibility features
+
+### Using Components
+
+Once installed, you can import and use Shadcn/UI components like any other React component:
+
+```typescript
+// Note: we are using `../components/` instead of `@/components/` to make Shadcn compatible with Wasp
+import { Button } from "../components/ui/button";
+
+export function MyComponent() {
+	return (
+		<div>
+			<Button variant="default">Click me</Button>
+			<Button variant="destructive">Delete</Button>
+			<Button variant="outline">Cancel</Button>
+		</div>
+	);
+}
+```
+
+### Available Variants
+
+Most Shadcn/UI components come with multiple variants. For example, the Button component includes:
+
+- `default` - Primary action
+- `destructive` - Dangerous or destructive actions
+- `outline` - Secondary actions
+- `secondary` - Alternative styling
+- `ghost` - Minimal styling
+- `link` - Appears as a link
+
+### Customizing Components
+
+You can customize components by modifying their source files in `src/components/ui`. The styling is based on Tailwind CSS classes and can be adjusted to match your design system.
+
+Example of customizing button variants:
+
+```typescript
+const buttonVariants = cva(
+	"inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1",
+	{
+		variants: {
+			variant: {
+				default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+				destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+				// Add your custom variants here
+				custom: "bg-purple-500 text-white hover:bg-purple-600",
+			},
+			// Add more variant types as needed
+		},
+		defaultVariants: {
+			variant: "default",
+		},
+	}
+);
+```
+
+### Common Components
+
+Here are some frequently used Shadcn/UI components you might want to add:
+
+```bash
+# Basic UI elements
+npx shadcn@latest add button
+npx shadcn@latest add input
+npx shadcn@latest add card
+
+# Form elements
+npx shadcn@latest add form
+npx shadcn@latest add select
+npx shadcn@latest add checkbox
+
+# Feedback & Overlay
+npx shadcn@latest add toast
+npx shadcn@latest add dialog
+npx shadcn@latest add alert
+```
+
+For more detailed information about available components and their usage, refer to the [Shadcn/UI Components documentation](https://ui.shadcn.com/components).
+
+---
 
 This guide covers the core concepts and patterns for building Wasp applications. For more detailed information, refer to the [official Wasp documentation](https://wasp-lang.dev/docs).
