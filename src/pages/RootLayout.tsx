@@ -1,3 +1,6 @@
+// This page defines the layout for the entire application.
+// It includes a header, footer, and a place for the page content to be rendered (Outlet).
+
 import { Outlet } from "react-router-dom";
 
 export default function Root() {

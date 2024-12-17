@@ -27,9 +27,9 @@ my-wasp-app/
     ├── pages/          		# React Page components
     ├── styles/         		# CSS styles
     └── entities/       		# Wasp and Database Entities
-        └── [db-entity]/ 		# Actions/Queries for a specific Wasp Entity
-           └── actions.ts	 	# Backend Actions for Entity
-           └── queries.ts	 	# Backend Queries for Entity
+        └── [wasp-entity]/ 	# Actions/Queries for a specific Wasp or dB Entity
+           └── actions.ts	 	# Backend Actions for that Entity
+           └── queries.ts	 	# Backend Queries for that Entity
 ```
 
 ## Main Configuration
