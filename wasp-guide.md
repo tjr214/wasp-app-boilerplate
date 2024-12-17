@@ -52,12 +52,7 @@ app MyApp {
       email: {}
     },
     onAuthFailedRedirectTo: "/login"
-  },
-
-  // Optional: dependencies
-  dependencies: [
-    ("react-icons", "^4.12.0")
-  ]
+  }
 }
 ```
 
@@ -93,22 +88,6 @@ model Post {
 ```
 
 ## Authentication
-
-### Configuration in main.wasp
-
-```wasp
-auth: {
-  userEntity: User,
-  methods: {
-    usernameAndPassword: {},
-    google: {
-      clientID: env("GOOGLE_CLIENT_ID"),
-      clientSecret: env("GOOGLE_CLIENT_SECRET")
-    }
-  },
-  onAuthFailedRedirectTo: "/login"
-}
-```
 
 ### Login Page Component
 
@@ -172,12 +151,12 @@ In main.wasp:
 
 ```wasp
 query getPosts {
-  fn: import { getPosts } from "@src/queries/posts",
+  fn: import { getPosts } from "@src/posts/queries",
   entities: [Post]
 }
 ```
 
-Implementation (src/queries/posts.ts):
+Implementation (src/posts/queries.ts):
 
 ```typescript
 import { GetPosts } from "wasp/server/operations";
@@ -198,12 +177,12 @@ In main.wasp:
 
 ```wasp
 action createPost {
-  fn: import { createPost } from "@src/actions/posts",
+  fn: import { createPost } from "@src/posts/actions",
   entities: [Post]
 }
 ```
 
-Implementation (src/actions/posts.ts):
+Implementation (src/posts/actions.ts):
 
 ```typescript
 import { CreatePost } from "wasp/server/operations";
