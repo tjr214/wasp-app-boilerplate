@@ -28,8 +28,8 @@ my-wasp-app/
     ├── styles/         		# CSS styles
     └── entities/       		# Wasp and Database Entities
         └── [wasp-entity]/ 	# Actions/Queries for a specific Wasp or dB Entity
-           └── actions.ts	 	# Backend Actions for that Entity
-           └── queries.ts	 	# Backend Queries for that Entity
+           └── actions.ts	 	# Backend Actions for `wasp-entity`
+           └── queries.ts	 	# Backend Queries for `wasp-entity`
 ```
 
 ## Main Configuration
