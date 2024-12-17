@@ -3,13 +3,13 @@ import { type Task } from "wasp/entities";
 import { type AuthUser, getUsername } from "wasp/auth";
 import { logout } from "wasp/client/auth";
 import { createTask, updateTask, deleteTasks, useQuery, getTasks } from "wasp/client/operations";
-import waspLogo from "./waspLogo.png";
+import waspLogo from "../assets/waspLogo.png";
 
 // import { Button } from "@/components/ui/button";
-import { Button } from "./components/ui/button";
+import { Button } from "../components/ui/button";
 
-import "./Main.css";
-import "./style.css";
+import "../styles/Main.css";
+import "../styles/style.css";
 
 export const MainPage = ({ user }: { user: AuthUser }) => {
 	const { data: tasks, isLoading, error } = useQuery(getTasks);

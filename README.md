@@ -1,12 +1,12 @@
-# A Simple ToDo App w/ Typescript & Fullstack Type Saftey ⛑
+# Wasp 0.15.x Boilerplate
 
 ## Configure shadcn/ui
 
 - Run `npx shadcn@latest init` to init the shadcn/ui tool.
 - In `components.json` change the `utils` alias to `@../../lib/utils`.
-- After installing a component, edit it and remove the `@` from the import.
+- After installing a component, edit it and remove the `@` from the `cn` import.
 - When importing the component:
-  - Remove the `@/` from the import and replace it with a `./`
+  - Remove the `@/` from the import and replace it with a `../`
 
 ## Running it locally
 
