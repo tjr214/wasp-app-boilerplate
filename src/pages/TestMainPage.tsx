@@ -3,15 +3,19 @@ import { type Task } from "wasp/entities";
 import { type AuthUser, getUsername } from "wasp/auth";
 import { logout } from "wasp/client/auth";
 import { createTask, updateTask, deleteTasks, useQuery, getTasks } from "wasp/client/operations";
+
+// Stylesheets
+import "../styles/style.css"; // Main CSS file (Tailwind/Shadcn)
+import "../styles/Main.css"; // Stylesheet specific to this page
+
+// Static Assets
 import waspLogo from "../assets/waspLogo.png";
 
-// import { Button } from "@/components/ui/button";
+// Shadcn Components
+// Change `import { Button } from "@/components/ui/button";` to `import { Button } from "../components/ui/button";`
 import { Button } from "../components/ui/button";
 
-import "../styles/Main.css";
-import "../styles/style.css";
-
-export const MainPage = ({ user }: { user: AuthUser }) => {
+export const TestMainPage = ({ user }: { user: AuthUser }) => {
 	const { data: tasks, isLoading, error } = useQuery(getTasks);
 
 	if (isLoading) return "Loading...";

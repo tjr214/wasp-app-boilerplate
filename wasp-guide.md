@@ -304,32 +304,13 @@ const getPosts = async (_args, context) => {
 ```typescript
 // In main.wasp
 action createComment {
-  fn: import { createComment } from "@src/actions/comments",
+  fn: import { createComment } from "@src/comments/actions",
   entities: [Comment, Post]
 }
 
 // In React component
 const { data: comments, isLoading } = useQuery(getComments, { postId });
 // Wasp automatically updates the UI when related entities change
-```
-
-### Environment Variables
-
-```wasp
-app MyApp {
-  title: "My App",
-  env: {
-    API_URL: "string",
-    STRIPE_SECRET: "string"
-  }
-}
-```
-
-Access in code:
-
-```typescript
-import { env } from "wasp/client";
-console.log(env.API_URL);
 ```
 
 This guide covers the core concepts and patterns for building Wasp applications. For more detailed information, refer to the [official Wasp documentation](https://wasp-lang.dev/docs).

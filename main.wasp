@@ -1,8 +1,17 @@
-app MyApp {
+app MyWaspShadcdUIApp {
   wasp: {
     version: "^0.15.0"
   },
-  title: "MyApp",
+  title: "My Wasp Shadcd/ui App Starter App",
+
+  head: [  // optional
+    "<meta name=\"viewport\" content=\"minimum-scale=1, initial-scale=1, width=device-width\" />",
+  ],
+
+  client: {
+    rootComponent: import Root from "@src/pages/RootLayout.tsx",
+    setupFn: import mySetupFunction from "@src/myClientSetupCode.ts",
+  },
 
   auth: {
     userEntity: User,
@@ -16,10 +25,12 @@ app MyApp {
   }
 }
 
-route RootRoute { path: "/", to: MainPage }
-page MainPage {
+// ROUTES AND THEIR PAGES
+
+route RootRoute { path: "/", to: TestMainPage }
+page TestMainPage {
   authRequired: true,
-  component: import { MainPage } from "@src/pages/MainPage"
+  component: import { TestMainPage } from "@src/pages/TestMainPage"
 }
 
 route LoginRoute { path: "/login", to: LoginPage }
@@ -32,6 +43,9 @@ page SignupPage {
   component: import { SignupPage } from "@src/auth/SignupPage"
 }
 
+// QUERIES AND ACTIONS
+
+// Task Entity
 query getTasks {
   // We specify the JS implementation of our query (which is an async JS function)
   fn: import { getTasks } from "@src/tasks/queries",
@@ -54,3 +68,5 @@ action deleteTasks {
   fn: import { deleteTasks } from "@src/tasks/actions",
   entities: [Task],
 }
+
+// Other dB Entities Go Here
