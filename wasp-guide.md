@@ -17,18 +17,19 @@ A typical Wasp project has the following structure:
 
 ```
 my-wasp-app/
-├── main.wasp           # Main configuration file
-├── schema.prisma       # Database schema
+├── main.wasp           		# Main Wasp configuration file
+├── schema.prisma       		# Database and Entity schema
 └── src/
-    ├── assets/         # Static assets (images, etc.)
-    ├── auth/           # Authentication (Login/Signup) related files
-    ├── components/     # Reusable React components (UI, etc.)
-    ├── lib/            # Utility functions (mostly used by Shadcn/ui components)
-    ├── pages/          # React Page components
-    ├── styles/         # CSS styles
-    └── [db-entity]/    # Actions/Queries for a specific database entity
-        └── actions.ts  # Backend actions
-        └── queries.ts  # Backend queries
+    ├── assets/         		# Static assets (images, etc.)
+    ├── auth/           		# Authentication (Login/Signup) related files
+    ├── components/     		# Reusable React components (UI, etc.)
+    ├── lib/            		# Utility functions (mostly used by Shadcn/ui components)
+    ├── pages/          		# React Page components
+    ├── styles/         		# CSS styles
+    └── entities/       		# Wasp and Database Entities
+        └── [db-entity]/ 		# Actions/Queries for a specific Wasp Entity
+           └── actions.ts	 	# Backend Actions for Entity
+           └── queries.ts	 	# Backend Queries for Entity
 ```
 
 ## Main Configuration
